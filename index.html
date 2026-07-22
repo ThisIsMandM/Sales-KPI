@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>آکادمی تحلیلی فروش و توزیع | نسخه جامع</title>
+    <title>آکادمی تحلیلی شاخص‌های فروش مویرگی</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
@@ -20,7 +20,6 @@
             --text-main: #e8e1d5;
             --text-muted: #b5a892;
             --accent-red: #c04e4e;
-            --accent-green: #597d59;
             --font-family: 'Vazirmatn', sans-serif;
         }
 
@@ -34,74 +33,70 @@
             background-color: var(--bg-body);
             color: var(--text-main);
             font-family: var(--font-family);
-            line-height: 2;
-            padding: 20px;
+            line-height: 2.1;
+            padding: 30px 20px;
             font-size: 15px;
             background-image: 
-                radial-gradient(circle at 15% 50%, rgba(212, 175, 55, 0.03), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.03), transparent 25%);
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.04), transparent 25%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.04), transparent 25%);
         }
 
         .container {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* Header */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px 40px;
             border-bottom: 1px solid var(--gold-dim);
             margin-bottom: 40px;
         }
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.2rem;
             color: var(--gold-primary);
             font-weight: 800;
             margin-bottom: 10px;
-            text-shadow: 0 0 20px var(--gold-glow);
+            text-shadow: 0 0 15px var(--gold-glow);
         }
 
         .subtitle {
             color: var(--text-muted);
-            font-size: 1.1rem;
-            font-weight: 400;
+            font-size: 1.05rem;
         }
 
-        /* Layout Grid */
         .layout {
             display: grid;
-            grid-template-columns: 320px 1fr;
+            grid-template-columns: 280px 1fr;
             gap: 30px;
         }
 
-        @media (max-width: 992px) {
+        @media (max-width: 900px) {
             .layout {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Sidebar */
+        /* Sidebar Nav */
         .sidebar {
             background: var(--bg-panel);
             border: 1px solid var(--gold-dim);
             border-radius: 12px;
-            padding: 25px 20px;
+            padding: 20px;
             height: max-content;
             position: sticky;
-            top: 20px;
+            top: 30px;
         }
 
         .sidebar-title {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--gold-primary);
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             border-bottom: 1px dashed var(--gold-dim);
             font-weight: 700;
             text-align: center;
-            letter-spacing: 1px;
         }
 
         .tab-btn {
@@ -110,12 +105,12 @@
             background: transparent;
             color: var(--text-main);
             border: 1px solid transparent;
-            padding: 15px;
-            margin-bottom: 10px;
+            padding: 14px 15px;
+            margin-bottom: 8px;
             border-radius: 8px;
             text-align: right;
             font-family: inherit;
-            font-size: 1.05rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -130,13 +125,13 @@
             border-color: var(--gold-primary);
             color: var(--gold-primary);
             font-weight: 700;
-            box-shadow: inset 4px 0 0 var(--gold-primary), 0 0 15px var(--gold-glow);
+            box-shadow: inset 4px 0 0 var(--gold-primary);
         }
 
-        /* Main Content */
+        /* Content Area */
         .content-section {
             display: none;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.4s ease;
         }
 
         .content-section.active {
@@ -144,7 +139,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -153,21 +148,18 @@
             border: 1px solid var(--gold-dim);
             border-radius: 12px;
             padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .card-title {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--gold-primary);
             margin-bottom: 30px;
             padding-bottom: 15px;
             border-bottom: 1px solid var(--gold-dim);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
         }
 
-        /* Text Blocks for Readability */
+        /* Text Blocks */
         .text-block {
             background: var(--bg-text-box);
             padding: 25px 30px;
@@ -178,11 +170,11 @@
 
         .text-block.warning {
             border-right-color: var(--accent-red);
-            background: rgba(192, 78, 78, 0.05);
+            background: rgba(192, 78, 78, 0.08);
         }
 
         .block-heading {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--gold-primary);
             margin-bottom: 15px;
             font-weight: 700;
@@ -195,24 +187,22 @@
         p {
             margin-bottom: 15px;
             text-align: justify;
-            font-size: 1.05rem;
         }
 
         ul {
-            list-style-type: none;
+            list-style: none;
             padding-right: 15px;
         }
 
         li {
             position: relative;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             padding-right: 25px;
             text-align: justify;
-            font-size: 1.05rem;
         }
 
         li::before {
-            content: "◈";
+            content: "✦";
             position: absolute;
             right: 0;
             top: 2px;
@@ -220,33 +210,31 @@
             font-size: 0.9rem;
         }
 
-        /* Interactive Element (Minimal & Elegant) */
-        .interactive-box {
-            margin-top: 40px;
-            padding: 30px;
+        /* Interactive Simulator */
+        .lab-box {
+            margin-top: 35px;
+            padding: 25px;
             border: 1px dashed var(--gold-primary);
             border-radius: 8px;
-            background: rgba(212, 175, 55, 0.02);
+            background: rgba(212, 175, 55, 0.03);
         }
 
-        .interactive-title {
+        .lab-title {
             color: var(--gold-primary);
-            font-size: 1.1rem;
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
         }
 
-        .slider-container {
+        .slider-row {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        .slider-container label {
-            min-width: 200px;
-            font-weight: 500;
+        .slider-row label {
+            min-width: 220px;
         }
 
         input[type=range] {
@@ -254,127 +242,106 @@
             accent-color: var(--gold-primary);
         }
 
-        .output-box {
-            background: var(--bg-panel);
+        .lab-output {
+            margin-top: 20px;
+            background: var(--bg-panel-hover);
             border: 1px solid var(--gold-dim);
             padding: 15px;
             text-align: center;
             border-radius: 6px;
             color: var(--gold-primary);
             font-weight: 700;
-            font-size: 1.1rem;
         }
-
     </style>
 </head>
 <body>
 
 <div class="container">
     <header>
-        <h1>کتابخانه مرجع شاخص‌های کلیدی فروش و توزیع</h1>
-        <p class="subtitle">نسخه جامع آموزشی - منطبق بر مستندات کامل مدیریتی و تحلیلی</p>
+        <h1>کتابخانه تحلیلی شاخص‌های کلیدی فروش و توزیع</h1>
+        <p class="subtitle">مستندات جامع تحلیل عملکرد مویرگی، عارضه‌یابی و روش‌های بهبود ساختاری</p>
     </header>
 
     <div class="layout">
         <div class="sidebar">
-            <div class="sidebar-title">فهرست شاخص‌ها (KPIs)</div>
-            <button class="tab-btn active" onclick="openTab(0)">۱. پوشش کل (Total Coverage)</button>
-            <button class="tab-btn" onclick="openTab(1)">۲. توزیع عددی (NHD)</button>
-            <button class="tab-btn" onclick="openTab(2)">۳. ضریب نفوذ و احیا</button>
-            <button class="tab-btn" onclick="openTab(3)">۴. میانگین تنوع (Avg SKU)</button>
-            <button class="tab-btn" onclick="openTab(4)">۵. فاکتور بر مشتری</button>
-            <button class="tab-btn" onclick="openTab(5)">۶. ارزش هر کیلو (Value/KG)</button>
-            <button class="tab-btn" onclick="openTab(6)">۷. دراپ سایز (Drop Size)</button>
+            <div class="sidebar-title">فهرست شاخص‌ها</div>
+            <button class="tab-btn active" onclick="openTab(0)">۱. شاخص Total Coverage و NHD</button>
+            <button class="tab-btn" onclick="openTab(1)">۲. شاخص Customer Penetration</button>
+            <button class="tab-btn" onclick="openTab(2)">۳. شاخص Invoice average SKU</button>
+            <button class="tab-btn" onclick="openTab(3)">۴. شاخص Invoice per Customer</button>
+            <button class="tab-btn" onclick="openTab(4)">۵. شاخص Average Price per KG</button>
+            <button class="tab-btn" onclick="openTab(5)">۶. شاخص Drop Size</button>
         </div>
 
         <div class="main-content">
 
             <div class="content-section active">
                 <div class="card">
-                    <div class="card-title">شاخص Total Coverage (پوشش کل)</div>
+                    <div class="card-title">۱) شاخص Total Coverage و NHD</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف و مفهوم</div>
-                        <p>به طور کلی نشان می‌دهد که چند درصد از فروشگاه‌های فعال در یک شهر، در بانک اطلاعات مشتریان مجموعه حضور دارند (در برخی موارد، به این گفته می شود که چند درصد از پایانه‌های فروش در یک شهر، در روت ویزیت قرار دارند).</p>
-                        <p>این شاخص به تفکیک برند یا محصول خاصی نیست و ارتباطی با محصول یا برند ندارد. در واقع این شاخص، <strong>پتانسیل و توانمندی بانک اطلاعات</strong> را نشان می دهد.</p>
+                        <div class="block-heading">تحلیل شاخص‌ها</div>
+                        <p><strong>شاخص NHD:</strong> یعنی در یک برش زمانی، طول یک سال، چند درصد از فروشگاه‌ها محصول یا برند مورد نظر را موجود دارند. پایین بودن این شاخص نشان می‌دهد که بانک اطلاعات پایانه های فروش، ضعیف است و مجموعه نمی تواند فروشگاه های زیادی را ویزیت نماید یا عملکرد ویزیتور ضعیف بوده است.</p>
+                        <p><strong>شاخص Total Coverage:</strong> به طور کلی نشان می‌دهد که چند درصد از فروشگاه‌های فعال در یک شهر، در بانک اطلاعات مشتریان مجموعه حضور دارند (در برخی موارد، به این گفته می شود که چند درصد از پایه‌های فروش در یک شهر، در روت ویزیت قرار دارند). این شاخص به تفکیک برند یا محصول خاصی نیست و ارتباطی با محصول یا برند ندارد. در واقع این شاخص، پتانسیل و توانمندی بانک اطلاعات را نشان می دهد.</p>
                     </div>
 
                     <div class="text-block">
-                        <div class="block-heading">روش‌های بهبود</div>
+                        <div class="block-heading">بهبود (دو روش کلی)</div>
                         <ul>
-                            <li><strong>روش اول (پروژه سرشماری):</strong> روش اول بر اجرای پروژه سرشماری تاکید دارد و افرادی خارج از مجموعه، این کار را انجام می دهند. پروژه سرشماری یا Census به نقطه گذاری و رصد کامل شهر یا منطقه می پردازد و می تواند تعداد فروشگاه ها را حداقل <strong>۳۰ تا ۴۰ درصد</strong> افزایش دهد. در برخی موارد حتی می تواند تعداد مشتریان بالقوه را چند برابر افزایش دهد. در پروژه سرشماری، اطلاعات پایانه های فروش به طور کامل جمع آوری می شود. شاخص هایی نظیر متراژ، موقعیت، نقطه GPS و تعداد پرسنل، وضعیت مالکیت و سابقه فعالیت و ...</li>
-                            <li><strong>روش دوم (اقتصادی تر):</strong> این روش بر افزایش بانک اطلاعات از طریق فعالیت ویزیتورها تاکید دارد. به این ترتیب که ویزیتورها سعی می کنند تا با تغییر در روت ها، اطلاعات فروشگاه های خارج از روت را جمع آوری کنند و به این ترتیب، حجم بانک اطلاعات را افزایش دهند. این کار معمولاً می تواند <strong>۲۰ تا ۲۵ درصد</strong> به حجم بانک اطلاعات بیفزاید.</li>
-                        </ul>
-                    </div>
-
-                    <div class="interactive-box">
-                        <div class="interactive-title">آزمایشگاه شبیه‌ساز اثر سرشماری (Census)</div>
-                        <div class="slider-container">
-                            <label>کل فروشگاه‌های شهر:</label>
-                            <input type="range" id="sim1-total" min="1000" max="10000" value="5000" oninput="calcSim1()">
-                            <span id="sim1-total-val" style="min-width: 50px;">5000</span>
-                        </div>
-                        <div class="slider-container">
-                            <label>بانک اطلاعات فعلی ما:</label>
-                            <input type="range" id="sim1-db" min="500" max="5000" value="2000" oninput="calcSim1()">
-                            <span id="sim1-db-val" style="min-width: 50px;">2000</span>
-                        </div>
-                        <div class="output-box" id="sim1-out">
-                            پوشش فعلی: ۴۰٪ | پوشش پس از سرشماری (افزایش ۳۵ درصدی دیتابیس): ۵۴٪
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-section">
-                <div class="card">
-                    <div class="card-title">شاخص NHD (توزیع عددی)</div>
-                    
-                    <div class="text-block">
-                        <div class="block-heading">تعریف و مفهوم</div>
-                        <p>یعنی در یک برش زمانی (مثلا در طول یک سال)، چند درصد از فروشگاه‌ها محصول یا برند مورد نظر را موجود دارند.</p>
-                    </div>
-
-                    <div class="text-block">
-                        <div class="block-heading">پایین بودن این شاخص نشان می‌دهد:</div>
-                        <ul>
-                            <li><strong>بانک اطلاعات پایانه های فروش ضعیف است:</strong> و مجموعه نمی تواند فروشگاه های زیادی را ویزیت نماید. (مثلا تعداد مشتریان کم است)</li>
-                            <li><strong>عملکرد ویزیتور ضعیف بوده است:</strong> مثلا تعداد فروشنده‌ها کم است.</li>
+                            <li><strong>روش اول:</strong> بر اجرای پروژه سرشماری تاکید دارد و افرادی خارج از مجموعه، این کار را انجام می دهند. پروژه سرشماری یا Census به نقطه گذاری و رصد کامل شهر یا منطقه می پردازد و می تواند تعداد فروشگاه ها را حداقل ۳۰ تا ۴۰ درصد افزایش دهد. در برخی موارد حتی می تواند تعداد مشتریان بالقوه را چند برابر افزایش دهد. در پروژه سرشماری، اطلاعات پایانه های فروش به طور کامل جمع آوری می شود. شاخص هایی نظیر متراژ، موقعیت، نقطه GPS و تعداد پرسنل، وضعیت مالکیت و سابقه فعالیت و ...</li>
+                            <li><strong>روش دوم (یک روش اقتصادی تر):</strong> بر افزایش بانک اطلاعات از طریق فعالیت ویزیتورها تاکید دارد. به این ترتیب که ویزیتورها سعی می کنند تا با تغییر در روت ها، اطلاعات فروشگاه های خارج از روت را جمع آوری کنند و به این ترتیب، حجم بانک اطلاعات را افزایش دهند. این کار معمولاً می تواند ۲۰ تا ۲۵ درصد به حجم بانک اطلاعات بیفزاید.</li>
                         </ul>
                     </div>
 
                     <div class="text-block">
                         <div class="block-heading">سایر روش‌ها برای بهبود مقطعی NHD</div>
                         <ul>
-                            <li>تغییر نماینده یا توزیع کننده و انتخاب توزیع کننده قوی‌تر و توانمندتر برای یک شهر یا منطقه خاص.</li>
-                            <li>اضافه کردن نماینده و توزیع کننده در مناطق بزرگ‌تر (مثلا خرد کردن استان آذربایجان غربی به سه منطقه و اختصاص یک نماینده به هر منطقه).</li>
-                            <li>مستقل کردن لاین های توزیع به خصوص داروخانه و اختصاص نماینده مستقل به هر لاین.</li>
-                            <li>اجاره شلف و اختصاص پروموشن های اکسترا.</li>
+                            <li>تغییر نماینده یا توزیع کننده و انتخاب توزیع کننده قوی تر و توانمندتر برای یک شهر یا منطقه خاص</li>
+                            <li>اضافه کردن نماینده و توزیع کننده در مناطق بزرگ تر (مثلا خرد کردن استان آذربایجان غربی به سه منطقه و اختصاص یک نماینده به هر منطقه)</li>
+                            <li>مستقل کردن لاین های توزیع به خصوص داروخانه و اختصاص نماینده مستقل به هر لاین</li>
+                            <li>اجاره شلف و اختصاص پروموشن های اکسترا</li>
                         </ul>
+                    </div>
+
+                    <div class="lab-box">
+                        <div class="lab-title">شبیه‌ساز اثر اجرای پروژه سرشماری (Census)</div>
+                        <div class="slider-row">
+                            <label>تعداد تخمینی کل فروشگاه‌های شهر:</label>
+                            <input type="range" id="sim1-total" min="1000" max="10000" value="5000" oninput="calcSim1()">
+                            <span id="sim1-total-val">5000</span>
+                        </div>
+                        <div class="slider-row">
+                            <label>بانک اطلاعات فعلی ما (در روت):</label>
+                            <input type="range" id="sim1-db" min="500" max="5000" value="2000" oninput="calcSim1()">
+                            <span id="sim1-db-val">2000</span>
+                        </div>
+                        <div class="lab-output" id="sim1-out">
+                            پوشش فعلی: ۴۰٪ | پوشش پس از سرشماری (رشد ۳۵٪ دیتابیس): ۵۴٪
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="content-section">
                 <div class="card">
-                    <div class="card-title">ضریب نفوذ مشتریان (احیای مشتری)</div>
+                    <div class="card-title">۲) شاخص Customer Penetration</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف</div>
-                        <p>یعنی چند درصد از مشتریان موجود در بانک اطلاعات، حداقل یکبار در طول دوره، سفارش داده‌اند. در واقع، این شاخص به نوعی منعکس کننده تعداد و نسبت مشتریان فعال است و همچنین می توان در تحلیل "مشتریان از دست رفته" کمک نماید که به تفکیک هر برند و محصول، محاسبه می‌شود.</p>
+                        <div class="block-heading">تحلیل شاخص</div>
+                        <p>یعنی چند درصد از مشتریان موجود در بانک اطلاعات، حداقل یکبار در طول سال، سفارش داده اند. در واقع، این شاخص به نوعی منعکس کننده تعداد و نسبت مشتریان فعال است و همچنین می توان در تحلیل "مشتریان از دست رفته" کمک نماید که به تفکیک هر برند و محصول، محاسبه می شود.</p>
                     </div>
 
                     <div class="text-block warning">
                         <div class="block-heading">نکته بسیار مهم (عارضه Sell-Out)</div>
-                        <p>اگر متوسط این شاخص در مورد یک محصول یا برند خاص، پایین باشد (در مقایسه با سایر محصولات یا برندها)؛ این خطر وجود دارد که <strong>محصول مشکل قیمت یا مشکل کالا یا Sell Out دارد.</strong> به عبارت دیگر، فروشگاه چند بار محصول را سفارش داده است اما به دلیل مشکل Sell out تصمیم گرفته دیگر این محصول را سفارش ندهد.</p>
-                        <p>برای بررسی این فرضیه، لازم است تا مینی پروژه <strong>"دلایل عدم سفارش"</strong> انجام شود. این مینی پروژه نباید توسط تیم فروش انجام شود بلکه باید توسط تیم بازاریابی یا تیم مستقل خارج از مجموعه، انجام شود. این پروژه، "پتانسیل رشد فروش از طریق احیای مشتریان از دست رفته" را نیز منعکس می سازد.</p>
+                        <p>اگر متوسط این شاخص در مورد یک محصول یا برند خاص، پایین باشد (در مقایسه با سایر محصولات یا برندها)؛ این خطر وجود دارد که محصول مشکل قیمت یا Product یا <strong>Sell Out</strong> دارد. به عبارت دیگر، فروشگاه چند بار محصول را سفارش داده است اما به دلیل مشکل Sell out تصمیم گرفته دیگر این محصول را سفارش ندهد.</p>
+                        <p>برای بررسی این فرضیه، لازم است تا مینی پروژه <strong>"دلایل عدم سفارش"</strong> انجام شود. این مینی پروژه نباید توسط تیم فروش انجام شود بلکه باید توسط <strong>تیم بازاریابی یا تیم مستقل خارج از مجموعه</strong>، انجام شود. این پروژه، "پتانسیل رشد فروش از طریق احیای مشتریان از دست رفته" را نیز منعکس می سازد.</p>
                     </div>
 
                     <div class="text-block">
                         <div class="block-heading">روش‌های بهبود</div>
                         <ul>
-                            <li><strong>تشکیل تیم احیای فروش یا WBLC (Win-Back Lost Customers):</strong> تیم احیای فروش، تیمی مستقل از ویزیتورها و نیروهای معمول فروش است و وظیفه دارد به صورت تلفنی یا حضوری، مشتریان از دست رفته را برگرداند. این تیم معمولاً استقلال عمل بیشتری در مذاکره دارد و می تواند تغییراتی در پروموشن و قیمت اعمال نماید.</li>
-                            <li><strong>افزایش تعداد نیروها:</strong> ممکن است پایین بودن این شاخص، به کم بودن تعداد نیروهای فروش نیز مرتبط باشد. بنابراین افزایش تعداد نیروهای فروش یکی از راه حل‌های احتمالی است.</li>
+                            <li><strong>تشکیل تیم احیای فروش یا WBLC:</strong> تیم احیای فروش، تیمی مستقل از ویزیتورها و نیروهای معمول فروش است و وظیفه دارد به صورت تلفنی یا حضوری، مشتریان از دست رفته را برگرداند. این تیم معمولاً استقلال عمل بیشتری در مذاکره دارد و می تواند تغییراتی در پروموشن و قیمت اعمال نماید.</li>
+                            <li><strong>افزایش تعداد نیروها:</strong> ممکن است پایین بودن این شاخص، به کم بودن تعداد نیروهای فروش نیز مرتبط باشد. بنابراین افزایش تعداد نیروهای فروش یکی از راه حل های احتمالی است.</li>
                             <li><strong>اختصاص پروموشن از نوع هدیه:</strong> تعریف پروموشن غیر کالایی و غیر مالی مثلا از نوع هدیه، می تواند در احیای فروشگاه نقش موثری داشته باشد.</li>
                             <li><strong>اجاره شلف:</strong> اجاره شلف نیز یکی از روش های موثر برای احیای فروشگاه های از دست رفته است.</li>
                         </ul>
@@ -384,20 +351,20 @@
 
             <div class="content-section">
                 <div class="card">
-                    <div class="card-title">شاخص Invoice average SKU (تعداد سطر فاکتور)</div>
+                    <div class="card-title">۳) شاخص Invoice average SKU</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف</div>
-                        <p>یعنی به طور متوسط چند SKU در هر فاکتور وجود دارد (از سبد یک برند یا محصول خاص). این شاخص، معادل شاخص "تعداد سطر به ازای فاکتور" است و تنوع فروش را منعکس می‌سازد.</p>
-                        <p>در حالت نرمال باید <strong>بیشتر از سه SKU</strong> باشد.</p>
+                        <div class="block-heading">تحلیل شاخص (تعداد سطر به ازای فاکتور)</div>
+                        <p>یعنی به طور متوسط چند SKU در هر فاکتور وجود دارد (از سبد یک برند یا محصول خاص). این شاخص، معادل شاخص "تعداد سطر به ازای فاکتور" است و تنوع فروش را منعکس می سازد.</p>
+                        <p style="color: var(--gold-primary); font-weight: bold;">نکته مهم: این شاخص، تاثیر زیادی بر فروش دارد و میزان SELL OUT را نیز افزایش می دهد چرا که حضور سبد متنوع تری از محصولات در شلف، تمایل مصرف کننده به خرید را افزایش می دهد.</p>
                     </div>
 
                     <div class="text-block">
                         <div class="block-heading">روش‌های بهبود</div>
                         <ul>
-                            <li><strong>بهبود کیفیت تیم فروش و آموزش:</strong> یکی از مهمترین دلایل پایین بودن این شاخص، ضعف نیروهای فروش است. این که نیروهای فروش، توان فروختن SKU های جدید و متنوع را ندارند. بنابراین یکی از راه حل‌ها برای بهبود این شاخص، "بهبود کیفیت نیروهای فروش و آموزش های حرفه ای" است.</li>
-                            <li><strong>تعریف پروموشن اختصاصی برای بهبود تنوع:</strong> می‌توان پروموشن‌های اختصاصی تعریف نمود که به خرید سبد متنوع‌تری از محصولات، تشویق نماید. یا در ازای خرید محصولات مشخص، هدایایی از SKU های جدید ارائه شود.</li>
-                            <li><strong>تعریف پاداش برای ویزیتور:</strong> تعریف پاداش به ازای فروش SKU های متنوع‌تر، می تواند یک راه حل باشد. در این حالت، شاخص "تعداد سطر به ازای فاکتور"، وزن مهمی برای ارزیابی عملکرد ویزیتور خواهد داشت.</li>
+                            <li><strong>بهبود کیفیت تیم فروش و آموزش:</strong> یکی از مهمترین دلایل پایین بودن این شاخص، ضعف نیروهای فروش است. این که نیروهای فروش، توان فروختن SKU های جدید و متنوع را ندارند. بنابراین یکی از راه حل ها برای بهبود این شاخص، "بهبود کیفیت نیروهای فروش و آموزش های حرفه ای" است.</li>
+                            <li><strong>تعریف پروموشن اختصاصی برای بهبود تنوع:</strong> می توان پروموشن های اختصاصی تعریف نمود که به خرید سبد متنوع تری از محصولات، تشویق نماید. یا در ازای خرید محصولات مشخص، هدایایی از SKU های جدید ارائه شود.</li>
+                            <li><strong>تعریف پاداش برای ویزیتور:</strong> تعریف پاداش به ازای فروش SKU های متنوع تر، می تواند یک راه حل باشد. در این حالت، شاخص "تعداد سطر به ازای فاکتور"، وزن مهمی برای ارزیابی عملکرد ویزیتور خواهد داشت.</li>
                         </ul>
                     </div>
                 </div>
@@ -405,10 +372,10 @@
 
             <div class="content-section">
                 <div class="card">
-                    <div class="card-title">شاخص Invoice per Customer (تکرار سفارش)</div>
+                    <div class="card-title">۴) شاخص Invoice per Customer</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف</div>
+                        <div class="block-heading">تحلیل شاخص</div>
                         <p>این شاخص نشان می دهد که هر مشتری فعال در طول یک سال؛ چند بار از مجموعه سفارش داده است. در واقع تعداد فاکتور به ازای هر مشتری فعال، چقدر است. معمولاً این شاخص منعکس کننده سطح ارتباط با مشتریان است و با دراپ سایز نیز ارتباط دارد.</p>
                     </div>
 
@@ -425,10 +392,10 @@
 
             <div class="content-section">
                 <div class="card">
-                    <div class="card-title">شاخص Average Price per KG (یا Value per KG)</div>
+                    <div class="card-title">۵) شاخص Average Price per KG یا Value per KG</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف</div>
+                        <div class="block-heading">تحلیل شاخص</div>
                         <p>این شاخص نشان می دهد که کیفیت فروش چگونه بوده است و مجموعه به طور متوسط، چه مبلغی بابت هر کیلوگرم محصول دریافت کرده است. پایین بودن این شاخص، عمدتا ناشی از سیاست های قیمتی نامناسب یا ضعف نیروهای فروش است.</p>
                     </div>
 
@@ -436,9 +403,9 @@
                         <div class="block-heading">روش‌های بهبود</div>
                         <ul>
                             <li><strong>آموزش و بهبود کیفیت فروش:</strong> یکی از دلایل افت این شاخص، ضعف نیروهای فروش است. ضعف نیروهای فروش سبب می شود تا نتوانند محصول را با قیمت مناسب بفروشند.</li>
-                            <li><strong>کاهش وابستگی به پروموشن:</strong> اگر فروشگاه ها بدانند که می‌توانند محصول را در ماه‌های خاص، با قیمت پایین‌تر سفارش دهند؛ معمولا کار فروش سخت می‌شود. فروشگاه‌ها به دریافت پروموشن بالا عادت کرده‌اند و بدون آنها ممکن است محصول را نخرند. در این حالت، کاهش وابستگی به پروموشن یا تغییر در زمان ارائه پروموشن، مهمترین راهکار است.</li>
-                            <li><strong>کاهش تقلبات فروش و افزایش نظارت:</strong> ممکن است ویزیتورها، راه‌هایی برای تقلب یا زیرفروشی، پیدا کرده باشند و در همکاری با فروشگاه‌ها، متوسط قیمت فروش را تعمدا کاهش دهند. بنابراین افزایش نظارت بر عملکرد ویزیتورها در این موارد، ضرورت دارد.</li>
-                            <li><strong>کاهش عمده فروشی:</strong> تمایل به عمده فروشی سبب می شود تا متوسط قیمت فروش، حتی تا ۴۰ درصد افت کند. بررسی نتایج نشان می‌دهد که <strong>قیمت فروش در کانال عمده فروشی، به طور متوسط ۲۰ تا ۳۰ درصد کمتر از قیمت فروش در کانال خرده است.</strong> بنابراین تقویت سیستم توزیع و کاهش عمده فروشی، می تواند این شاخص را بهبود بخشد.</li>
+                            <li><strong>کاهش وابستگی به پروموشن:</strong> اگر فروشگاه ها بدانند که می توانند محصول را در ماه های خاص، با قیمت پایین تر سفارش دهند؛ معمولا کار فروش سخت می شود. فروشگاه ها به دریافت پروموشن بالا عادت کرده اند و بدون آنها ممکن است محصول را نخرند. در این حالت، کاهش وابستگی به پروموشن یا تغییر در زمان ارائه پروموشن، مهمترین راهکار است.</li>
+                            <li><strong>کاهش تقلبات فروش و افزایش نظارت:</strong> ممکن است ویزیتورها، راه هایی برای تقلب یا زیرفروشی، پیدا کرده باشند و در همکاری با فروشگاه ها، متوسط قیمت فروش را تعمدا کاهش دهند. بنابراین افزایش نظارت بر عملکرد ویزیتورها در این موارد، ضرورت دارد.</li>
+                            <li><strong>کاهش عمده فروشی:</strong> تمایل به عمده فروشی سبب می شود تا متوسط قیمت فروش، حتی تا ۴۰ درصد افت کند. بررسی نتایج نشان می دهد که قیمت فروش در کانال عمده فروشی، <strong>به طور متوسط ۲۰ تا ۳۰ درصد کمتر</strong> از قیمت فروش در کانال خرده است. بنابراین تقویت سیستم توزیع و کاهش عمده فروشی، می تواند این شاخص را بهبود بخشد.</li>
                         </ul>
                     </div>
                 </div>
@@ -446,20 +413,19 @@
 
             <div class="content-section">
                 <div class="card">
-                    <div class="card-title">شاخص Drop Size (اندازه سفارش)</div>
+                    <div class="card-title">۶) شاخص Drop Size</div>
                     
                     <div class="text-block">
-                        <div class="block-heading">تعریف</div>
-                        <p>این شاخص نشان می‌دهد که متوسط وزنی هر فاکتور، چقدر بوده است. بزرگ یا کوچک بودن این شاخص، می تواند معنای مثبت یا منفی داشته باشد و به تنهایی نمی‌توان این شاخص را تحلیل نمود.</p>
-                        <p>بزرگ بودن این شاخص می تواند حاکی از توانمندی و قدرت مذاکره نیروهای فروش باشد اما در عین حال می‌تواند نشان دهنده تمایل مجموعه به عمده فروشی و "فروش از طریق پروموشن" باشد. <strong>بهترین حالت برای این شاخص این است که اعداد در سطح بهینه و متوسط قرار داشته باشند.</strong></p>
+                        <div class="block-heading">تحلیل شاخص</div>
+                        <p>این شاخص نشان می دهد که متوسط وزنی هر فاکتور، چقدر بوده است. بزرگ یا کوچک بودن این شاخص، می تواند معنای مثبت یا منفی داشته باشد و به تنهایی نمی توان این شاخص را تحلیل نمود. بزرگ بودن این شاخص می تواند حاکی از توانمندی و قدرت مذاکره نیروهای فروش باشد اما در عین حال می تواند نشان دهنده تمایل مجموعه به عمده فروشی و "فروش از طریق پروموشن" باشد. بهترین حالت برای این شاخص این است که اعداد در سطح بهینه و متوسط قرار داشته باشند.</p>
                     </div>
 
                     <div class="text-block">
                         <div class="block-heading">روش‌های بهبود</div>
                         <ul>
-                            <li>اختصاص پروموشن‌های وزنی و تشویق فروشگاه‌ها به خرید بیشتر.</li>
-                            <li>اختصاص پاداش به ویزیتورها به ازای فروش وزنی بالاتر به فروشگاه‌ها که البته <strong>معمولا یک راه حل ریسکی است</strong> چرا که ممکن است کیفیت فروش را کاهش دهد یا تقلب را افزایش دهد.</li>
-                            <li>توسعه محصولات جدید برای تشویق فروشگاه به خرید وزنی بالاتر.</li>
+                            <li>اختصاص پروموشن های وزنی و تشویق فروشگاه ها به خرید بیشتر</li>
+                            <li>اختصاص پاداش به ویزیتورها به ازای فروش وزنی بالاتر به فروشگاهها که البته <strong>معمولا یک راه حل ریسکی است</strong> چرا که ممکن است کیفیت فروش را کاهش دهد یا تقلب را افزایش دهد.</li>
+                            <li>توسعه محصولات جدید برای تشویق فروشگاه به خرید وزنی بالاتر</li>
                         </ul>
                     </div>
                 </div>
@@ -470,7 +436,7 @@
 </div>
 
 <script>
-    // Logic for Tabs
+    // Tab Switching Logic
     function openTab(index) {
         const sections = document.querySelectorAll('.content-section');
         const buttons = document.querySelectorAll('.tab-btn');
@@ -482,11 +448,12 @@
         buttons[index].classList.add('active');
     }
 
-    // Interactive Simulator Logic for Total Coverage
+    // Census Simulator Logic (Tab 1)
     function calcSim1() {
         const total = parseInt(document.getElementById('sim1-total').value);
         let db = parseInt(document.getElementById('sim1-db').value);
         
+        // Ensure Database isn't larger than total shops
         if (db > total) {
             db = total;
             document.getElementById('sim1-db').value = total;
@@ -496,11 +463,13 @@
         document.getElementById('sim1-db-val').innerText = db;
 
         const currentRate = ((db / total) * 100).toFixed(1);
-        const postCensusDb = Math.min(total, Math.round(db * 1.35));
+        
+        // Simulating 35% growth based on the 30-40% metric from the text
+        const postCensusDb = Math.min(total, Math.round(db * 1.35)); 
         const postCensusRate = ((postCensusDb / total) * 100).toFixed(1);
 
         document.getElementById('sim1-out').innerText = 
-            `پوشش فعلی: ${currentRate}٪ | پوشش پس از سرشماری (افزایش ۳۵ درصدی دیتابیس): ${postCensusRate}٪`;
+            `پوشش فعلی: ${currentRate}٪ | پوشش پس از سرشماری (رشد ۳۵٪ دیتابیس): ${postCensusRate}٪`;
     }
 </script>
 
