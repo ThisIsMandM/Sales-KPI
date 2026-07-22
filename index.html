@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آکادمی تحلیل فروش و توزیع | Dark Academia KPIs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-primary: #12100e;
+            --bg-card: #1c1815;
+            --bg-card-hover: #26211c;
+            --accent-gold: #c9a96e;
+            --accent-gold-glow: rgba(201, 169, 110, 0.25);
+            --accent-copper: #b86b4b;
+            --text-main: #e8e3d9;
+            --text-muted: #a69f91;
+            --border-color: rgba(201, 169, 110, 0.2);
+            --border-hover: rgba(201, 169, 110, 0.5);
+            --font-family: 'Vazirmatn', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: var(--font-family);
+            line-height: 1.8;
+            padding: 20px;
+            background-image: radial-gradient(circle at 50% 0%, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        header::after {
+            content: "✦ ✦ ✦";
+            display: block;
+            margin-top: 15px;
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(201, 169, 110, 0.2);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 300;
+        }
+
+        /* Dashboard Layout */
+        .dashboard {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px;
+            height: fit-content;
+        }
+
+        .nav-title {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .kpi-btn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            color: var(--text-main);
+            font-family: var(--font-family);
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-align: right;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-color);
+            color: var(--accent-gold);
+        }
+
+        .kpi-btn.active {
+            background: var(--bg-card-hover);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            box-shadow: 0 0 15px var(--accent-gold-glow);
+            font-weight: 700;
+        }
+
+        .kpi-btn .badge {
+            font-size: 0.75rem;
+            background: rgba(201, 169, 110, 0.15);
+            padding: 2px 8px;
+            border-radius: 12px;
+            color: var(--accent-gold);
+        }
+
+        /* Content Area */
+        .content-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: none;
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .content-card.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .card-header h2 {
+            font-size: 1.6rem;
+            color: var(--accent-gold);
+        }
+
+        .card-header .tag {
+            background: var(--accent-copper);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Section Layouts */
+        .section-block {
+            margin-bottom: 25px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 8px;
+            border-right: 3px solid var(--accent-gold);
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        ul {
+            list-style: none;
+            padding-right: 5px;
+        }
+
+        li {
+            position: relative;
+            padding-right: 20px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        li::before {
+            content: "◈";
+            position: absolute;
+            right: 0;
+            color: var(--accent-gold);
+            font-size: 0.8rem;
+        }
+
+        /* Interactive Simulator Box */
+        .simulator-box {
+            margin-top: 30px;
+            background: #14110e;
+            border: 1px solid var(--accent-gold);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .simulator-box::before {
+            content: "آزمایشگاه تعاملی";
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 2px 10px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .sim-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sim-control-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        input[type=range] {
+            flex-grow: 1;
+            accent-color: var(--accent-gold);
+        }
+
+        .sim-result {
+            margin-top: 15px;
+            padding: 12px;
+            background: rgba(201, 169, 110, 0.1);
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>دفترچه راهنمای تحلیل فروش و توزیع مویرگی</h1>
+        <p class="subtitle">تطبیق استراتژی‌های فروش با رویکرد آماری و تحلیلی | Dark Academia Edition</p>
+    </header>
+
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="nav-title">شاخص‌های کلیدی (KPIs)</div>
+            <button class="kpi-btn active" onclick="showCard(0)">
+                <span>۱. پوشش کل</span>
+                <span class="badge">Coverage</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(1)">
+                <span>۲. توزیع عددی</span>
+                <span class="badge">NHD</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(2)">
+                <span>۳. ضریب نفوذ مشتریان</span>
+                <span class="badge">Penetration</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(3)">
+                <span>۴. تنوع در فاکتور</span>
+                <span class="badge">Avg SKU</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(4)">
+                <span>۵. تکرار سفارش</span>
+                <span class="badge">Frequency</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(5)">
+                <span>۶. متوسط قیمت کیلویی</span>
+                <span class="badge">Value/KG</span>
+            </button>
+            <button class="kpi-btn" onclick="showCard(6)">
+                <span>۷. اندازه سفارش</span>
+                <span class="badge">Drop Size</span>
+            </button>
+        </div>
+
+        <div class="content-area">
+
+            <div class="content-card active">
+                <div class="card-header">
+                    <h2>شاخص پوشش کل (Total Coverage Rate)</h2>
+                    <span class="tag">پتانسیل زیرساخت</span>
+                </div>
+                
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>این شاخص نشان می‌دهد از کل فروشگاه‌های فعال موجود در یک شهر، چند درصد آن‌ها در <strong>بانک اطلاعاتی ما</strong> ثبت شده و در روت ویزیت قرار دارند. این شاخص کاری به برند یا نوع محصول خاصی ندارد.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📊 تحلیل و اهمیت مدیریتی</div>
+                    <ul>
+                        <li>نمایانگر پتانسیل واقعی بازار و ظرفیت دیتابیس مجموعه.</li>
+                        <li>پایه و اساس برنامه‌ریزی فروش؛ دیتابیس ضعیف یعنی عدم دسترسی به بخش بزرگی از بازار.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ روش‌های بهبود عملیاتی</div>
+                    <ul>
+                        <li><strong>پروژه سرشماری (Census):</strong> نقطه گذاری و ممیزی کامل شهر با GPS (افزایش ۳۰ تا ۴۰ درصدی دیتابیس).</li>
+                        <li><strong>پوشش اصلاحی ویزیتورها:</strong> ثبت مغازه‌های خارج از روت توسط نیروهای فروش (افزایش ۲۰ تا ۲۵ درصدی).</li>
+                    </ul>
+                </div>
+
+                <div class="simulator-box">
+                    <div class="sim-controls">
+                        <div class="sim-control-group">
+                            <label>کل مغازه‌های فعال شهر:</label>
+                            <input type="range" id="c1-total" min="500" max="5000" value="2000" oninput="calcCoverage()">
+                            <span id="c1-total-val">2000</span>
+                        </div>
+                        <div class="sim-control-group">
+                            <label>مغازه‌های موجود در دیتابیس ما:</label>
+                            <input type="range" id="c1-db" min="100" max="5000" value="1200" oninput="calcCoverage()">
+                            <span id="c1-db-val">1200</span>
+                        </div>
+                    </div>
+                    <div class="sim-result" id="c1-result">
+                        نرخ پوشش کل: ۶۰٪ (مطلوب)
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>توزیع عددی یا موجودی کالا (NHD Index)</h2>
+                    <span class="tag">حضور روی شلف</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>در یک برش زمانی (مثلاً یک‌ساله)، چند درصد از فروشگاه‌های موجود در دیتابیس ما، محصول یا برند مورد نظر را در مغازه خود <strong>موجود دارند</strong>.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚠️ علل پایین بودن شاخص</div>
+                    <ul>
+                        <li>ضعف بانک اطلاعاتی یا تعداد کم ویزیتورها.</li>
+                        <li>عدم سرکشی منظم به فروشگاه‌ها و ضعف در توزیع.</li>
+                    </ul>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ روش‌های بهبود</div>
+                    <ul>
+                        <li>تغییر یا اضافه کردن نماینده و توزیع‌کننده قوی‌تر.</li>
+                        <li>خرد کردن مناطق جغرافیایی بزرگ به مناطق کوچک‌تر.</li>
+                        <li>مستقل کردن لاین‌های توزیع (مثلاً لاین داروخانه‌ای).</li>
+                        <li>اجاره شلف و پروموشن‌های تشویقی سفارش اول.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>ضریب نفوذ مشتریان (Customer Penetration Rate)</h2>
+                    <span class="tag">مشتریان فعال</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>چند درصد از مشتریان موجود در دیتابیس، <strong>حداقل یک‌بار</strong> در طول دوره سفارش ثبت کرده‌اند. این شاخص وضعیت «مشتریان فعال» و «مشتریان از دست رفته» را تحلیل می‌کند.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">📌 نکته کلیدی تحلیلی (مشکل Sell-Out)</div>
+                    <p>اگر این شاخص برای یک برند خاص پایین باشد، یعنی مغازه‌دار جنس را خریده اما به دلیل عدم استقبال مشتری نهایی (مشکل Sell-out)، دیگر سفارش نداده است. برای بررسی این فرضیه، مینی‌پروژه «دلایل عدم سفارش» باید توسط <strong>تیم بازاریابی</strong> انجام شود.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ راهکارهای بهبود</div>
+                    <ul>
+                        <li>تشکیل تیم احیای فروش یا <strong>WBLC</strong> (بازگرداندن مشتریان ریزش کرده).</li>
+                        <li>تعریف پروموشن‌های غیرمالی و هدیه‌ای.</li>
+                        <li>افزایش تعداد نیروهای فروش برای سرکشی مجدد.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>میانگین تنوع اقلام در فاکتور (Invoice Avg SKU)</h2>
+                    <span class="tag">تنوع فروش</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>به طور متوسط چند کد کالا (SKU) در هر فاکتور ثبت شده است (تعداد سطر در فاکتور). این شاخص نشان‌دهنده تنوع سبد فروش است و در حالت نرمال باید <strong>بیشتر از ۳ SKU</strong> باشد.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ راهکارهای بهبود</div>
+                    <ul>
+                        <li><strong>آموزش تیم فروش:</strong> ارتقای مهارت ویزیتورها برای فروش کالا‌های جدید و سخت‌تر.</li>
+                        <li><strong>پروموشن‌های سبدی:</strong> ارائه هدیه یا تخفیف در صورت خرید ترکیبی چند SKU مختلف.</li>
+                        <li><strong>اصلاح سیستم پاداش:</strong> وزن‌دهی به تعداد سطر فاکتور در پورسانت ویزیتور.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>تعداد فاکتور به ازای هر مشتری (Invoice per Customer)</h2>
+                    <span class="tag">تکرار سفارش</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>هر مشتری فعال در طول یک سال، چند بار از ما خرید کرده است. این شاخص میزان عمق ارتباط با مشتریان و تکرار سفارش را اندازه می‌گیرد.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">⚠️ علل پایین بودن و راهکارها</div>
+                    <ul>
+                        <li><strong>کمبود نیروهای فروش:</strong> باعث طولانی شدن دوره ویزیت می‌شود ➔ <em>راهکار: افزایش نیروها.</em></li>
+                        <li><strong>دراپ سایز خیلی بزرگ:</strong> مغازه‌دار انبار کرده و تا مدتی سفارش نمی‌دهد ➔ <em>راهکار: تنظیم حجم سفارش.</em></li>
+                        <li><strong>ضعف سیستم CRM:</strong> ➔ <em>راهکار: ایجاد مرکز سفارش تلفنی یا آنلاین B2B.</em></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>متوسط قیمت به ازای هر کیلوگرم (Average Price per KG)</h2>
+                    <span class="tag">کیفیت فروش</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>مجموعه به طور متوسط بابت هر کیلوگرم محصول فروخته شده، چه مبلغی دریافت کرده است. این شاخص کیفیت فروش و نرخ تخفیف‌زدگی را نشان می‌دهد.</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ راهکارهای بهبود</div>
+                    <ul>
+                        <li>کاهش وابستگی به پروموشن‌ها و تخفیف‌های سنگین.</li>
+                        <li>کاهش سهم عمده‌فروشی (عمده‌فروشی ۲۰ تا ۳۰ درصد قیمت را پایین می‌آورد).</li>
+                        <li>افزایش نظارت برای جلوگیری از زیرفروشی یا تقلب ویزیتورها.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <h2>اندازه سفارش / دراپ سایز (Drop Size Index)</h2>
+                    <span class="tag">حجم فاکتور</span>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">💡 تعریف به زبان ساده</div>
+                    <p>متوسط وزنی یا ریالی هر فاکتور چقدر بوده است. عدد مطلوب برای این شاخص، یک <strong>عدد بهینه و متوازن</strong> است (نه خیلی کوچک که هزینه توزیع بالا برود، و نه خیلی بزرگ که نشان‌دهنده عمده‌فروشی و تخفیف‌زدگی باشد).</p>
+                </div>
+
+                <div class="section-block">
+                    <div class="section-title">🛠️ راهکارهای بهبود</div>
+                    <ul>
+                        <li>تعریف پروموشن‌های وزنی برای تشویق به خرید بهینه.</li>
+                        <li>تعریف پاداش وزنی برای ویزیتورها (با نظارت بر عدم افت کیفیت فروش).</li>
+                        <li>توسعه و معرفی محصولات جدید به مشتریان.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>طراحی شده بر اساس اصول تحلیلی فروش مویرگی و آمار کاربردی FMCG</p>
+    </footer>
+</div>
+
+<script>
+    function showCard(index) {
+        // Hide all cards
+        const cards = document.querySelectorAll('.content-card');
+        cards.forEach(card => card.classList.remove('active'));
+
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('.kpi-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+
+        // Show selected card and highlight button
+        cards[index].classList.add('active');
+        buttons[index].classList.add('active');
+    }
+
+    // Interactive Simulator for Coverage
+    function calcCoverage() {
+        const total = document.getElementById('c1-total').value;
+        const db = document.getElementById('c1-db').value;
+        
+        document.getElementById('c1-total-val').innerText = total;
+        document.getElementById('c1-db-val').innerText = db;
+
+        const percentage = Math.min(100, Math.round((db / total) * 100));
+        let status = "ضعیف";
+        if(percentage >= 70) status = "عالی";
+        else if(percentage >= 50) status = "مطلوب";
+
+        document.getElementById('c1-result').innerText = `نرخ پوشش کل: ${percentage}٪ (${status})`;
+    }
+</script>
+
+</body>
+</html>
